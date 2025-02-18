@@ -170,9 +170,11 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   }
 
   const test = {
-    type: jsPsychImageKeyboardResponse,
+    type: jsPsychHtmlSliderResponse ,
     stimulus: jsPsych.timelineVariable('stimulus') as unknown as string,
-    choices: ['f', 'j'] satisfies KeyboardResponse[],
+    labels: ['Purple', 'Blue'],
+    prompt: '<p>Is this color closer to purple or blue? Use the slider above. (1s display).</p>',
+    slider_width: 500,
     data: {
       task: 'response' satisfies Task,
       correct_response: jsPsych.timelineVariable('correct_response') as unknown as string,
