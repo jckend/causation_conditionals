@@ -3,6 +3,7 @@ import externalHtml from '@jspsych/plugin-external-html'
 import jsPsychHtmlButtonResponse from '@jspsych/plugin-html-button-response'
 import jsPsychHtmlKeyboardResponse from '@jspsych/plugin-html-keyboard-response'
 import jsPsychImageKeyboardResponse from '@jspsych/plugin-image-keyboard-response'
+import jsPsychHtmlSliderReponse from '@jspsych/plugin-html-slider-response'
 import jsPsychPreload from '@jspsych/plugin-preload'
 import { initJsPsych } from 'jspsych'
 
@@ -26,8 +27,6 @@ const mock = mockStore()
 type Task = 'response' | 'fixation' | 'question' | 'feedback'
 type Response = 'left' | 'right'
 type KeyboardResponse = 'ArrowLeft' | 'ArrowRight'
-
-import imgRock from 'C:/Users/caleb/Downloads/gettyimages-455596495-612x612.jpg'
 
 interface TrialData {
   task: Task
@@ -123,19 +122,17 @@ export async function runExperiment(updateDebugPanel: () => void) {
 
   /* define trial variables for training trials */
     var most_trial0 = {
-    type: jsPsychImageKeyboardResponse,
-    stimulus: ImgRock,
+    type: jsPsychHtmlSliderResponse,
+    stimulus: ,
     stimulus_width: 700,
     choices: ['ArrowLeft', 'ArrowRight'],
     prompt: '<p><b>Most items are whales</b>.</p>',
-    trial_duration: 4000,
-    response_ends_trial: true,
   }
 
   /* define trial variables for cooperative trials */
   var okay_trial2 = {
     type: jsPsychImageKeyboardResponse,
-    stimulus: ImgRock,
+    stimulus: ,
     stimulus_width: 700,
     choices: ['ArrowLeft', 'ArrowRight'],
     prompt: '<p><b>If Susy throws her rock, the glass will shatter</b>.</p>',
