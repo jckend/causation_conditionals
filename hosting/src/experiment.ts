@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
 import jsPsychHtmlKeyboardResponse from '@jspsych/plugin-html-keyboard-response'
-import jsPsychHtmlSliderResponse from '@jspsych/plugin-html-slider-response'
+import jsPsychImageSliderResponse from '@jspsych/plugin-image-slider-response'
 import jsPsychImageKeyboardResponse from '@jspsych/plugin-image-keyboard-response'
 import jsPsychPreload from '@jspsych/plugin-preload'
 import { initJsPsych } from 'jspsych'
@@ -170,7 +170,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   }
 
   const test = {
-    type: jsPsychHtmlSliderResponse ,
+    type: jsPsychImageSliderResponse,
     stimulus: jsPsych.timelineVariable('stimulus') as unknown as string,
     labels: ['0%', '50%','100%'],
     prompt: '<p>How certain are you?</p>',
