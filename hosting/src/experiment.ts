@@ -151,9 +151,9 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   timeline.push(instructions)
 
   /* define trial stimuli array for timeline variables */
-  const test_stimuli: Record<string, string>[] = [
-    { stimulus: imgStimBlue, correct_response: 'f' as KeyboardResponse },
-    { stimulus: imgStimOrange, correct_response: 'j' as KeyboardResponse },
+  const test_stimuli: Record<string>[] = [
+    { stimulus: imgStimBlue},
+    { stimulus: imgStimOrange},
   ]
 
   /* define test trials */
