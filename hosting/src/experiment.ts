@@ -125,10 +125,19 @@ export async function runExperiment(updateDebugPanel: () => void) {
   /* define trial variables for training trials */
     var most_trial0 = {
     type: jsPsychHtmlSliderResponse,
-    stimulus: imgBeaver1,
-    stimulus_width: 700,
-    choices: ['ArrowLeft', 'ArrowRight'],
-    prompt: '<p><b>Most items are whales</b>.</p>',
+    stimulus: `<div style="width:500px;">
+        <p>How likely is it that team A will win this match?</p>
+        <div style="width:240px; float: left;">
+            <p>TEAM A</p>
+            <p>10 wins, 5 losses, 6 draws</p>
+        </div>
+        <div style="width:240px; float: right;">
+            <p>TEAM B</p>
+            <p>6 wins, 4 losses, 11 draws</p>
+        </div>
+        </div>`,
+    require_movement: true,
+    labels: ['100% chance', '50% chance', '0% chance']
   }
 
   /* define trial variables for cooperative trials */
@@ -228,7 +237,7 @@ export async function runExperiment(updateDebugPanel: () => void) {
   
   /* define training procedure */
   const test_procedure0 = {
-    timeline: [fixation, question, test],
+    timeline: [fixation, test],
     timeline_variables: training,
     repetitions: 1,
     randomize_order: true,
