@@ -1,0 +1,138 @@
+{
+  "folders": [
+    {
+      "name": "root",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    },
+    "files.associations": {
+      "*.css": "tailwindcss"
+    },
+    "[javascript][javascriptreact][typescript]": {
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json][jsonc]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css][scss][less]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "eslint.enable": true,
+    "eslint.format.enable": true,
+    "eslint.useFlatConfig": true,
+    // "eslint.nodePath": ".yarn/sdks",
+    // "typescript.tsdk": ".yarn/sdks/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "prettier.prettierPath": "./node_modules/prettier",
+    "prettier.configPath": "./prettier.config.cjs", // this is a temp fix for VSCode
+    "files.exclude": {
+      "**/node_modules": true,
+      "**/.yarn": true,
+      ".idea": true,
+      "hosting/dist": true
+    },
+    "search.exclude": {
+      "**/.pnp.*": true,
+      "**/.vscode": true
+    },
+    "explorer.expandSingleFolderWorkspaces": true,
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+      "*.ts": "${capture}.js",
+      "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+      "*.jsx": "${capture}.js",
+      "*.tsx": "${capture}.ts",
+      "tsconfig.json": "tsconfig.*.json",
+      "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb"
+    },
+    "cSpell.words": ["creds", "Expt", "Firestore", "jspsych", "Stim"],
+    "workbench.colorCustomizations": {
+      "[monokai-charcoal (gray)]": {
+        "tab.activeBackground": "#000000",
+        "tab.inactiveBackground": "#3a3a3a",
+        "tab.unfocusedActiveBackground": "#222222",
+        "tab.unfocusedInactiveBackground": "#5c5c5c",
+        "tab.unfocusedActiveBorder": "#000000",
+        "tab.hoverBorder": "#ff0000",
+        "tab.unfocusedHoverBorder": "#ff0000",
+        "tab.activeBorder": "#000000",
+        "editor.lineHighlightBorder": "#FFFFFF00",
+        "editor.lineHighlightBackground": "#44475a50",
+        "editor.selectionBackground": "#0055ff",
+        "editor.selectionForeground": "#e84500",
+        "editor.inactiveSelectionBackground": "#a7cc666a",
+        "editor.findMatchBackground": "#ed0f0f00",
+        "editor.findMatchBorder": "#e00a0ae0",
+        "editor.findMatchHighlightBackground": "#fff2004e",
+        "editor.findMatchHighlightBorder": "#dcd21c00",
+        "editor.wordHighlightBackground": "#00eaff00",
+        "editor.wordHighlightBorder": "#00eaff86",
+        "editor.wordHighlightStrongBackground": "#ff00ff00",
+        "editor.wordHighlightStrongBorder": "#ff00ffb7",
+        "editor.wordHighlightTextBackground": "#eeff0000",
+        "editor.wordHighlightTextBorder": "#eeff0065",
+        "editorOverviewRuler.errorForeground": "#ff0000",
+        "editorOverviewRuler.modifiedForeground": "#62e0ff27",
+        "editorOverviewRuler.deletedForeground": "#ffae0064",
+        "editorOverviewRuler.addedForeground": "#00ff0050",
+        "editorOverviewRuler.findMatchForeground": "#3624fff8",
+        "editorOverviewRuler.selectionHighlightForeground": "#ff00ffa6",
+        "editorOverviewRuler.wordHighlightForeground": "#00fbffca",
+        "editorOverviewRuler.wordHighlightStrongForeground": "#00fbffca",
+        "editorOverviewRuler.wordHighlightTextForeground": "#00fbffca",
+        "editorOverviewRuler.currentContentForeground": "#acd220f3",
+        "breadcrumb.background": "#206ad256",
+        "editorBracketHighlight.foreground1": "#17fff3",
+        "editorBracketMatch.border": "#ff5e00bf"
+      },
+      "[Julia (Monokai Vibrant)]": {
+        "tab.activeBackground": "#000000",
+        "tab.inactiveBackground": "#3a3a3a",
+        "tab.hoverBorder": "#ff0000",
+        "tab.unfocusedHoverBorder": "#ff0000",
+        "tab.unfocusedActiveBackground": "#201f51",
+        "tab.activeBorder": "#000000",
+        "editor.background": "#000000",
+        "editor.lineHighlightBorder": "#FFFFFF00",
+        "editor.lineHighlightBackground": "#44475a50",
+        "editor.selectionBackground": "#0055ff",
+        "editor.selectionForeground": "#e84500",
+        "editor.inactiveSelectionBackground": "#a7cc666a",
+        "editor.findMatchBackground": "#ed0f0f00",
+        "editor.findMatchBorder": "#e00a0ae0",
+        "editor.findMatchHighlightBackground": "#fff2004e",
+        "editor.findMatchHighlightBorder": "#dcd21c00",
+        "editor.wordHighlightBackground": "#00eaff00",
+        "editor.wordHighlightBorder": "#00eaff86",
+        "editor.wordHighlightStrongBackground": "#ff00ff00",
+        "editor.wordHighlightStrongBorder": "#ff00ffb7",
+        "editor.wordHighlightTextBackground": "#eeff0000",
+        "editor.wordHighlightTextBorder": "#eeff0065",
+        "editorOverviewRuler.findMatchForeground": "#3624fff8",
+        "editorOverviewRuler.selectionHighlightForeground": "#ff00ffa6",
+        "editorOverviewRuler.wordHighlightForeground": "#00fbffca",
+        "editorOverviewRuler.wordHighlightStrongForeground": "#00fbffca",
+        "editorOverviewRuler.wordHighlightTextForeground": "#00fbffca",
+        "editorOverviewRuler.currentContentForeground": "#acd220f3",
+        "breadcrumb.background": "#206ad256",
+        "editorBracketHighlight.foreground1": "#17fff3",
+        "editorBracketMatch.border": "#ff5e00bf"
+      },
+      "activityBar.background": "#023603",
+      "titleBar.activeBackground": "#024C04",
+      "titleBar.activeForeground": "#F0FEF1"
+    }
+  },
+  "extensions": {
+    "recommendations": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode", "bradlc.vscode-tailwindcss", "arcanis.vscode-zipfs", "yoavbls.pretty-ts-errors", "streetsidesoftware.code-spell-checker"]
+  }
+}
