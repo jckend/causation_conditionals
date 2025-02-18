@@ -156,19 +156,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
     { stimulus: imgStimOrange, correct_response: 'j' as KeyboardResponse },
   ]
 
-  /* define fixation and test trials */
-  const fixation = {
-    type: jsPsychHtmlKeyboardResponse,
-    stimulus: '<div style="font-size:60px;">+</div>',
-    choices: 'NO_KEYS',
-    trial_duration: function () {
-      return jsPsych.randomization.sampleWithoutReplacement([250, 500, 750, 1000, 1250, 1500, 1750, 2000], 1)[0]
-    },
-    data: {
-      task: 'fixation' satisfies Task,
-    },
-  }
-
+  /* define test trials */
   const test = {
     type: jsPsychImageSliderResponse,
     stimulus: jsPsych.timelineVariable('stimulus') as unknown as string,
@@ -183,7 +171,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
 
   /* define test procedure */
   const test_procedure = {
-    timeline: [fixation, test],
+    timeline: [test],
     timeline_variables: test_stimuli,
     repetitions: 3,
     randomize_order: true,
@@ -194,13 +182,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   const debrief_block = {
     type: jsPsychHtmlKeyboardResponse,
     stimulus: function () {
-      const trials = jsPsych.data.get().filter({ task: 'response' })
-      const correct_trials = trials.filter({ correct: true })
-      const accuracy = Math.round((correct_trials.count() / trials.count()) * 100)
-      const rt = Math.round(correct_trials.select('rt').mean())
-
-      return `<p>You responded correctly on ${accuracy.toString()}% of the trials.</p>
-          <p>Your average response time was ${rt.toString()}ms.</p>
+      return `
           <p>Press any key to complete the experiment. Thank you!</p>`
     },
   }
