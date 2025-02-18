@@ -151,17 +151,17 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   timeline.push(instructions)
 
   /* define trial stimuli array for timeline variables */
-  const test_stimuli: Record<string>[] = [
-    { stimulus: imgStimBlue},
-    { stimulus: imgStimOrange},
+  const test_stimuli: Record<string, string>[] = [
+    { stimulus: imgStimBlue, prompt: '<p>If Suzy did not throw her rock, how likely is it that window shatters?</p>'},
+    { stimulus: imgStimOrange, prompt: '<p>How certain are you?</p>'},
   ]
 
   /* define test trials */
-  const test = {
+  const test1 = {
     type: jsPsychImageSliderResponse,
     stimulus: jsPsych.timelineVariable('stimulus') as unknown as string,
     labels: ['0%', '50%','100%'],
-    prompt: '<p>How certain are you?</p>',
+    prompt: jsPsych.timelineVariable('prompt') as unknown as string,
     slider_width: 500,
     on_finish: function (data: TrialData) {
       // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition, unicorn/no-null
@@ -171,7 +171,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
 
   /* define test procedure */
   const test_procedure = {
-    timeline: [test],
+    timeline: [test1],
     timeline_variables: test_stimuli,
     repetitions: 3,
     randomize_order: true,
