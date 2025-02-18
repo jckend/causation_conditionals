@@ -172,16 +172,11 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   const test = {
     type: jsPsychHtmlSliderResponse ,
     stimulus: jsPsych.timelineVariable('stimulus') as unknown as string,
-    labels: ['Purple', 'Blue'],
-    prompt: '<p>Is this color closer to purple or blue? Use the slider above. (1s display).</p>',
+    labels: ['0%', '50%','100%'],
+    prompt: '<p>How certain are you?</p>',
     slider_width: 500,
-    data: {
-      task: 'response' satisfies Task,
-      correct_response: jsPsych.timelineVariable('correct_response') as unknown as string,
-    },
     on_finish: function (data: TrialData) {
       // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition, unicorn/no-null
-      data.correct = jsPsych.pluginAPI.compareKeys(data.response || null, data.correct_response || null)
       data.saveIncrementally = true
     },
   }
