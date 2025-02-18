@@ -111,6 +111,15 @@ export async function runExperiment(updateDebugPanel: () => void) {
 
   /* create timeline */
   const timeline: Record<string, unknown>[] = []
+
+   var trial_1 = {
+      type: jsPsychHtmlSliderResponse,
+      stimulus: '<div style="margin: 50px auto; width: 100px; height: 100px; background-color: rgb(46, 26, 122);"></div>',
+      labels: ['Purple', 'Blue'],
+      slider_width: 500,
+      require_movement: true,
+      prompt: '<p>Is this color closer to purple or blue? Use the slider above.</p>'
+    }
   
   /* define welcome message trial */
   const welcome = {
@@ -119,36 +128,10 @@ export async function runExperiment(updateDebugPanel: () => void) {
   }
   timeline.push(welcome)
 
-  var trial_1 = {
-      type: jsPsychHtmlSliderResponse,
-      stimulus: '<div style="margin: 50px auto; width: 100px; height: 100px; background-color: rgb(46, 26, 122);"></div>',
-      labels: ['Purple', 'Blue'],
-      slider_width: 500,
-      require_movement: true,
-      prompt: '<p>Is this color closer to purple or blue? Use the slider above.</p>'
-    };
+
   timeline.push(trial1)
 
-    var trial_2 = {
-      type: jsPsychHtmlSliderResponse,
-      stimulus: '<div style="margin: 50px auto; width: 100px; height: 100px; background-color: rgb(29, 23, 138)"></div>',
-      labels: ['Purple', 'Blue'],
-      slider_start: 10,
-      slider_width: 500,
-      prompt: '<p>Is this color closer to purple or blue? Use the slider above. (5s time limit; custom starting value).</p>',
-      trial_duration: 5000
-    };
-  timeline.push(trial2)
-
-    var trial_3 = {
-      type: jsPsychHtmlSliderResponse,
-      stimulus: '<div style="margin: 50px auto; width: 100px; height: 100px; background-color: rgb(63, 17, 129)"></div>',
-      labels: ['Purple', 'Blue'],
-      prompt: '<p>Is this color closer to purple or blue? Use the slider above. (1s display).</p>',
-      slider_width: 500,
-      stimulus_duration: 1000
-    };
-  timeline.push(trial3)
+  
 
   /* start the experiment */
   // @ts-expect-error allow timeline to be type jsPsych TimelineArray
