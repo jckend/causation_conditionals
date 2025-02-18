@@ -152,8 +152,8 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
 
   /* define trial stimuli array for timeline variables */
   const test_stimuli: Record<string, string>[] = [
-    { stimulus: imgStimBlue, prompt: '<p>If Suzy did not throw her rock, how likely is it that window shatters?</p>'},
-    { stimulus: imgStimOrange, prompt: '<p>How certain are you?</p>'},
+    { stimulus: imgStimBlue, prompt: '<p>If Suzy threw her rock, how confident are you that the window would shatter?</p>'},
+    { stimulus: imgStimOrange, prompt: '<p>If Suzy threw her rock, how confident are you that the window would shatter?</p>'},
   ]
 
   /* define test trials */
