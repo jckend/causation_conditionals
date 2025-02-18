@@ -15,7 +15,6 @@ import { saveTrialDataComplete, saveTrialDataPartial } from './lib/databaseUtils
 import type { SaveableDataRecord } from '../types/project'
 import type { DataCollection } from 'jspsych'
 
-import imgBeaver1 from 'C:/Users/caleb/all_ginger_some_beaver1.png'
 
 /* Alternatively
  * type JsPsychInstance = ReturnType<typeof initJsPsych>
@@ -112,8 +111,6 @@ export async function runExperiment(updateDebugPanel: () => void) {
 
   /* create timeline */
   const timeline: Record<string, unknown>[] = []
-
-  /* preload images */
   
   /* define welcome message trial */
   const welcome = {
@@ -122,7 +119,7 @@ export async function runExperiment(updateDebugPanel: () => void) {
   }
   timeline.push(welcome)
 
-    var trial_1 = {
+  var trial_1 = {
       type: jsPsychHtmlSliderResponse,
       stimulus: '<div style="margin: 50px auto; width: 100px; height: 100px; background-color: rgb(46, 26, 122);"></div>',
       labels: ['Purple', 'Blue'],
@@ -130,6 +127,7 @@ export async function runExperiment(updateDebugPanel: () => void) {
       require_movement: true,
       prompt: '<p>Is this color closer to purple or blue? Use the slider above.</p>'
     };
+  timeline.push(trial1)
 
     var trial_2 = {
       type: jsPsychHtmlSliderResponse,
@@ -140,6 +138,7 @@ export async function runExperiment(updateDebugPanel: () => void) {
       prompt: '<p>Is this color closer to purple or blue? Use the slider above. (5s time limit; custom starting value).</p>',
       trial_duration: 5000
     };
+  timeline.push(trial2)
 
     var trial_3 = {
       type: jsPsychHtmlSliderResponse,
@@ -149,8 +148,7 @@ export async function runExperiment(updateDebugPanel: () => void) {
       slider_width: 500,
       stimulus_duration: 1000
     };
-
-    jsPsych.run([trial_1, trial_2, trial_3]);
+  timeline.push(trial3)
 
   /* start the experiment */
   // @ts-expect-error allow timeline to be type jsPsych TimelineArray
