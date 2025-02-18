@@ -15,6 +15,8 @@ import { saveTrialDataComplete, saveTrialDataPartial } from './lib/databaseUtils
 import type { SaveableDataRecord } from '../types/project'
 import type { DataCollection } from 'jspsych'
 
+import imgBeaver1 from 'C:/Users/caleb/all_ginger_some_beaver1.png'
+
 /* Alternatively
  * type JsPsychInstance = ReturnType<typeof initJsPsych>
  * type JsPsychGetData = JsPsychInstance['data']['get']
@@ -123,7 +125,7 @@ export async function runExperiment(updateDebugPanel: () => void) {
   /* define trial variables for training trials */
     var most_trial0 = {
     type: jsPsychHtmlSliderResponse,
-    stimulus: ,
+    stimulus: imgBeaver1,
     stimulus_width: 700,
     choices: ['ArrowLeft', 'ArrowRight'],
     prompt: '<p><b>Most items are whales</b>.</p>',
@@ -132,7 +134,7 @@ export async function runExperiment(updateDebugPanel: () => void) {
   /* define trial variables for cooperative trials */
   var okay_trial2 = {
     type: jsPsychImageKeyboardResponse,
-    stimulus: ,
+    stimulus: imgBeaver1,
     stimulus_width: 700,
     choices: ['ArrowLeft', 'ArrowRight'],
     prompt: '<p><b>If Susy throws her rock, the glass will shatter</b>.</p>',
