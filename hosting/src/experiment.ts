@@ -114,7 +114,7 @@ export async function runExperiment(updateDebugPanel: () => void) {
 
    var trial_1 = {
       type: jsPsychHtmlSliderResponse,
-      stimulus: '<div style="margin: 50px auto; width: 100px; height: 100px; background-color: rgb(46, 26, 122);"></div>',
+      stimulus: '3foihrfo',
       labels: ['Purple', 'Blue'],
       slider_width: 500,
       require_movement: true,
