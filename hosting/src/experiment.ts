@@ -166,10 +166,11 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   const test2 = {
     type: jsPsychSurveyLikert,
     questions: [
-    {
-      prompt: jsPsych.timelineVariable('prompt') as unknown as string, 
-      labels: likert_scale
-    }
+      {
+        prompt: jsPsych.timelineVariable('prompt') as unknown as string, 
+        labels: likert_scale
+      }
+      ],
     on_finish: function (data: TrialData) {
       // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition, unicorn/no-null
       data.saveIncrementally = true
