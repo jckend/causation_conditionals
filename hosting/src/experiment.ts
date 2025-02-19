@@ -167,7 +167,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
 
   const test2 = {
     type: jsPsychSurveyLikert,
-    preamble: '<img src=jsPsych.timelineVariable('stimulus')></img>,
+    preamble: '<img src=jsPsych.timelineVariable('stimulus')></img>',
     questions: [
       {
         prompt: jsPsych.timelineVariable('prompt') as unknown as string, 
