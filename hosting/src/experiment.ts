@@ -143,12 +143,14 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
 
   /* define trial stimuli array for timeline variables */
   const test_stimuli: Record<string, string>[] = [
-    { stimulus: imgThrow1, prompt: '<p>If Suzy threw her rock, how confident are you that the window would shatter?</p>'},
-    { stimulus: imgThrow2, prompt: '<p>If Suzy threw her rock, how confident are you that the window would shatter?</p>'},
+    { stimulus: imgThrow1, prompt: '<p>If blue man throws his rock, the vase will shatter.</p>'},
+    { stimulus: imgThrow1, prompt: '<p>If blue man does not throw his rock, the vase will not shatter.</p>'},
+    { stimulus: imgThrow2, prompt: '<p>If blue man throws his rock, the vase will shatter.</p>'},
+    { stimulus: imgThrow2, prompt: '<p>If blue man does not throw his rock, the vase will not shatter.</p>'},
   ]
 
   /*define likert scale*/
-  var likert_scale = [ "False", "Unsure", "Ture" ]
+  var likert_scale = [ "False", "Unsure", "True" ]
 
   /* define test trials */
   const test1 = {
@@ -165,9 +167,9 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
 
   const test2 = {
     type: jsPsychSurveyLikert,
+    preamble: jsPsych.timelineVariable('stimulus') as unknown as string,
     questions: [
       {
-        stimulus: jsPsych.timelineVariable('stimulus') as unknown as string, 
         prompt: jsPsych.timelineVariable('prompt') as unknown as string, 
         labels: likert_scale
       }
