@@ -12,8 +12,7 @@ import { saveTrialDataComplete, saveTrialDataPartial } from './lib/databaseUtils
 import type { SaveableDataRecord } from '../types/project'
 import type { DataCollection } from 'jspsych'
 
-import imgStimBlue from './images/all_some_burger1.png'
-import imgStimOrange from './images/all_some_burger2.png'
+import imgThrow1 from './images/throw_rock_man.png'
 
 /* Alternatively
  * type JsPsychInstance = ReturnType<typeof initJsPsych>
@@ -116,7 +115,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   /* preload images */
   const preload = {
     type: jsPsychPreload,
-    images: [imgStimBlue, imgStimOrange],
+    images: [imgRock1],
   }
   timeline.push(preload)
 
@@ -152,8 +151,8 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
 
   /* define trial stimuli array for timeline variables */
   const test_stimuli: Record<string, string>[] = [
-    { stimulus: imgStimBlue, prompt: '<p>If Suzy threw her rock, how confident are you that the window would shatter?</p>'},
-    { stimulus: imgStimOrange, prompt: '<p>If Suzy threw her rock, how confident are you that the window would shatter?</p>'},
+    { stimulus: imgRock1, prompt: '<p>If Suzy threw her rock, how confident are you that the window would shatter?</p>'},
+    { stimulus: imgRock1, prompt: '<p>If Suzy threw her rock, how confident are you that the window would shatter?</p>'},
   ]
 
   /* define test trials */
