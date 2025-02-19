@@ -148,7 +148,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   ]
 
   /*define likert scale*/
-  var likert_scale = [ "Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree" ];
+  var likert_scale = [ "False", "Unsure", "Ture" ]
 
   /* define test trials */
   const test1 = {
