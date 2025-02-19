@@ -4,6 +4,7 @@ import jsPsychHtmlKeyboardResponse from '@jspsych/plugin-html-keyboard-response'
 import jsPsychImageSliderResponse from '@jspsych/plugin-image-slider-response'
 import jsPsychImageKeyboardResponse from '@jspsych/plugin-image-keyboard-response'
 import jsPsychPreload from '@jspsych/plugin-preload'
+import jsPsychSurveyLikert from '@jspsych/plugin-survey-likert'
 import { initJsPsych } from 'jspsych'
 
 import { debugging, getUserInfo, mockStore, prolificCC, prolificCUrl } from './globalVariables'
@@ -146,6 +147,9 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
     { stimulus: imgThrow2, prompt: '<p>If Suzy threw her rock, how confident are you that the window would shatter?</p>'},
   ]
 
+  /*define likert scale*/
+  var likert_scale = [ "Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree" ];
+
   /* define test trials */
   const test1 = {
     type: jsPsychImageSliderResponse,
@@ -159,11 +163,24 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
     },
   }
 
+  const test2 = {
+    type: jsPsychSurveyLikert,
+    questions: [
+    {
+      prompt: jsPsych.timelineVariable('prompt') as unknown as string, 
+      labels: likert_scale
+    }
+    on_finish: function (data: TrialData) {
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition, unicorn/no-null
+      data.saveIncrementally = true
+    },
+  }
+
   /* define test procedure */
   const test_procedure = {
-    timeline: [test1],
+    timeline: [test1,test2],
     timeline_variables: test_stimuli,
-    repetitions: 3,
+    repetitions: 1,
     randomize_order: true,
   }
   timeline.push(test_procedure)
