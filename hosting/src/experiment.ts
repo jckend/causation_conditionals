@@ -167,6 +167,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
     type: jsPsychSurveyLikert,
     questions: [
       {
+        stimulus: jsPsych.timelineVariable('stimulus') as unknown as string, 
         prompt: jsPsych.timelineVariable('prompt') as unknown as string, 
         labels: likert_scale
       }
