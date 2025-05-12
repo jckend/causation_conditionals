@@ -142,10 +142,10 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
 
   /* define trial stimuli array for timeline variables */
   const test_stimuli: Record<string, string>[] = [
-    { stimulus: imgThrow1, prompt: '<p>If blue man throws his rock, the vase will shatter.</p>'},
-    { stimulus: imgThrow1, prompt: '<p>If blue man does not throw his rock, the vase will not shatter.</p>'},
-    { stimulus: imgThrow2, prompt: '<p>If blue man throws his rock, the vase will shatter.</p>'},
-    { stimulus: imgThrow2, prompt: '<p>If blue man does not throw his rock, the vase will not shatter.</p>'},
+    { stimulus: imgThrow1, prompt: '<p>If blue man throws his rock, the <span class="font-semibold text-blue-500">vase will shatter</span>.</p>'},
+    { stimulus: imgThrow1, prompt: '<p>If blue man does not throw his rock, the <span class="font-semibold text-orange-500">vase will not shatter</span>.</p>'},
+    { stimulus: imgThrow2, prompt: '<p>If blue man throws his rock, the <span class="font-semibold text-blue-500">vase will shatter</span>.</p>'},
+    { stimulus: imgThrow2, prompt: '<p>If blue man does not throw his rock, the <span class="font-semibold text-orange-500">vase will not shatter</span>.</p>'},
   ]
 
   /*define likert scale*/
