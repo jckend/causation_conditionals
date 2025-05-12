@@ -4,7 +4,6 @@ import jsPsychHtmlKeyboardResponse from '@jspsych/plugin-html-keyboard-response'
 import jsPsychImageSliderResponse from '@jspsych/plugin-image-slider-response'
 import jsPsychImageKeyboardResponse from '@jspsych/plugin-image-keyboard-response'
 import jsPsychPreload from '@jspsych/plugin-preload'
-import jsPsychSurveyLikert from '@jspsych/plugin-survey-likert'
 import { initJsPsych } from 'jspsych'
 
 import { debugging, getUserInfo, mockStore, prolificCC, prolificCUrl } from './globalVariables'
@@ -166,19 +165,17 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   }
 
   const test2 = {
-    type: jsPsychSurveyLikert,
-    preamble: jsPsych.timelineVariable('stimulus') as unknown as string,
-    questions: [
-      {
-        prompt: jsPsych.timelineVariable('prompt') as unknown as string, 
-        labels: likert_scale
-      }
-      ],
+    type: jsPsychImageSliderResponse,
+    stimulus: jsPsych.timelineVariable('stimulus') as unknown as string,
+    labels: ['False', 'Unsure','True'],
+    prompt: jsPsych.timelineVariable('prompt') as unknown as string,
+    slider_width: 500,
     on_finish: function (data: TrialData) {
       // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition, unicorn/no-null
       data.saveIncrementally = true
     },
   }
+
 
   /* define test procedure */
   const test_procedure = {
