@@ -148,6 +148,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
     { stimulus: imgThrow2, prompt: '<p>If blue man does not throw his rock, the <span class="font-semibold text-orange-500">vase will not shatter</span>.</p>'},
   ]
 
+  
   /*define likert scale*/
   var likert_scale = [ "False", "Unsure", "True" ]
 
@@ -186,6 +187,34 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   }
   timeline.push(test_procedure)
 
+  var ignorance_1 = {
+    type: jsPsychHtmlSliderResponse,
+    stimulus: 'There are two ways to get $5 from Mr. Johnson: mowing his lawn or cleaning his gutters. However, Laura believes that mowing Mr. Johnson’s lawn is the only way to obtain $5 from him. She tells you: “If you mow Mr. Johnson’s lawn, he’ll pay you $5.”',
+    stimulus_width: 700,
+    prompt: 'Do you think Laura would accept the following statement: “If you don’t mow Mr. Johnson’s lawn, he won’t pay you $5.”',
+    labels: ["no", "unsure", "yes"],
+    slider_width: 500,
+    require_movement: true, 
+    on_finish: function (data: TrialData) {
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition, unicorn/no-null
+      data.saveIncrementally = true
+    },
+  }
+
+var ignorance_2 = {
+    type: jsPsychHtmlSliderResponse,
+    stimulus: 'Bob has two risk factors for cardiovascular disease: he smokes and he drinks excessively. However, Bob has lied to his doctor about his drinking. Bob’s doctor tells you: “If Bob doesn’t quit smoking, he’ll get cardiovascular disease.”',
+    stimulus_width: 700,
+    prompt: 'Do you think Bob’s doctor would accept the following statement: “If Bob quits smoking, he won’t get cardiovascular disease.”', 
+    labels: ["no", "unsure", "yes"],
+    slider_width: 500,
+    require_movement: true, 
+    on_finish: function (data: TrialData) {
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition, unicorn/no-null
+      data.saveIncrementally = true
+    },
+  }
+  
   /* define debrief */
   const debrief_block = {
     type: jsPsychHtmlKeyboardResponse,
