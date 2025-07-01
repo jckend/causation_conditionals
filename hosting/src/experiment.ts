@@ -187,6 +187,19 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   }
   timeline.push(test_procedure)
 
+  const instructions2 = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: `
+<p>In this experiment, a circle will appear in the center of the screen.</p>
+<p>If the circle is <span class="font-semibold text-blue-500">blue</span>, press the letter <span class="font-semibold text-blue-500">F</span> on the keyboard as fast as you can.</p>
+<p>If the circle is <span class="font-semibold text-orange-500">orange</span>, press the letter <span class="font-semibold text-orange-500">J</span> as fast as you can.</p>
+<p>Press any key to begin.</p>
+    `,
+    post_trial_gap: 2000,
+  }
+  timeline.push(instructions2)
+
+
   var ignorance_1 = {
     type: jsPsychHtmlSliderResponse,
     stimulus: 'There are two ways to get $5 from Mr. Johnson: mowing his lawn or cleaning his gutters. However, Laura believes that mowing Mr. Johnson’s lawn is the only way to obtain $5 from him. She tells you: “If you mow Mr. Johnson’s lawn, he’ll pay you $5.”',
