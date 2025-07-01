@@ -12,9 +12,6 @@ import { saveTrialDataComplete, saveTrialDataPartial } from './lib/databaseUtils
 import type { SaveableDataRecord } from '../types/project'
 import type { DataCollection } from 'jspsych'
 
-import imgThrow1 from './images/throw_rock_man.png'
-import imgThrow2 from './images/throw_rock_man2.png'
-
 /* Alternatively
  * type JsPsychInstance = ReturnType<typeof initJsPsych>
  * type JsPsychGetData = JsPsychInstance['data']['get']
@@ -113,13 +110,6 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   /* create timeline */
   const timeline: Record<string, unknown>[] = []
 
-  /* preload images */
-  const preload = {
-    type: jsPsychPreload,
-    images: [imgThrow1, imgThrow2],
-  }
-  timeline.push(preload)
-
   /* define welcome message trial */
   const welcome = {
     type: jsPsychHtmlKeyboardResponse,
@@ -138,52 +128,6 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   }
   timeline.push(instructions)
 
-  /* define trial stimuli array for timeline variables */
-  const test_stimuli: Record<string, string>[] = [
-    { stimulus: imgThrow1, prompt: '<p>If blue man throws his rock, the <span class="font-semibold text-blue-500">vase will shatter</span>.</p>'},
-    { stimulus: imgThrow1, prompt: '<p>If blue man does not throw his rock, the <span class="font-semibold text-orange-500">vase will not shatter</span>.</p>'},
-    { stimulus: imgThrow2, prompt: '<p>If blue man throws his rock, the <span class="font-semibold text-blue-500">vase will shatter</span>.</p>'},
-    { stimulus: imgThrow2, prompt: '<p>If blue man does not throw his rock, the <span class="font-semibold text-orange-500">vase will not shatter</span>.</p>'},
-  ]
-
-  
-  /*define likert scale*/
-  var likert_scale = [ "False", "Unsure", "True" ]
-
-  /* define test trials */
-  const test1 = {
-    type: jsPsychImageSliderResponse,
-    stimulus: jsPsych.timelineVariable('stimulus') as unknown as string,
-    labels: ['0%', '50%','100%'],
-    prompt: jsPsych.timelineVariable('prompt') as unknown as string,
-    slider_width: 500,
-    on_finish: function (data: TrialData) {
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition, unicorn/no-null
-      data.saveIncrementally = true
-    },
-  }
-
-  const test2 = {
-    type: jsPsychImageSliderResponse,
-    stimulus: jsPsych.timelineVariable('stimulus') as unknown as string,
-    labels: ['False', 'Unsure','True'],
-    prompt: jsPsych.timelineVariable('prompt') as unknown as string,
-    slider_width: 500,
-    on_finish: function (data: TrialData) {
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition, unicorn/no-null
-      data.saveIncrementally = true
-    },
-  }
-
-
-  /* define test procedure */
-  const test_procedure = {
-    timeline: [test1,test2],
-    timeline_variables: test_stimuli,
-    repetitions: 1,
-    randomize_order: true,
-  }
-  timeline.push(test_procedure)
 
   /* define instructions for second trial */
   const instructions2 = {
