@@ -131,7 +131,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   timeline.push(instructions)
 
 
-  var ignorance_1 = {
+  const ignorance_1 = {
     type: jsPsychHtmlSliderResponse,
     stimulus: 'There are two ways to get $5 from Mr. Johnson: mowing his lawn or cleaning his gutters. However, Laura believes that mowing Mr. Johnson’s lawn is the only way to obtain $5 from him. She tells you: “If you mow Mr. Johnson’s lawn, he’ll pay you $5.”',
     stimulus_width: 700,
@@ -146,7 +146,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   }
   timeline.push(ignorance_1)
 
-var ignorance_2 = {
+const ignorance_2 = {
     type: jsPsychHtmlSliderResponse,
     stimulus: 'Bob has two risk factors for cardiovascular disease: he smokes and he drinks excessively. However, Bob has lied to his doctor about his drinking. Bob’s doctor tells you: “If Bob doesn’t quit smoking, he’ll get cardiovascular disease.”',
     stimulus_width: 700,
