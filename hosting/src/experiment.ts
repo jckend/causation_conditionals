@@ -142,6 +142,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
       data.saveIncrementally = true
     },
   }
+    timeline.push(ignorance1)
 
 var ignorance_2 = {
     type: jsPsychHtmlSliderResponse,
