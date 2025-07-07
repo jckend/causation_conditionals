@@ -144,6 +144,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
       data.saveIncrementally = true
     },
   }
+  timeline.push(ignorance_1)
 
 var ignorance_2 = {
     type: jsPsychHtmlSliderResponse,
@@ -157,15 +158,8 @@ var ignorance_2 = {
       // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition, unicorn/no-null
       data.saveIncrementally = true
     },
+}
   
-  /* define test procedure */
-  const test_procedure = {
-    timeline: [ignorance_1,ignorance_2],
-    repetitions: 1,
-    randomize_order: true,
-  }
-  timeline.push(test_procedure)
-
   /* define debrief */
   const debrief_block = {
     type: jsPsychHtmlKeyboardResponse,
