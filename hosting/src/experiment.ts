@@ -123,8 +123,8 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   const instructions = {
     type: jsPsychHtmlKeyboardResponse,
     stimulus: `
-<p>In this experiment, you will be presented with an image and asked some questions.</p>
-<p>Press any key to begin.</p>
+      <p>In this experiment, you will be presented with an image and asked some questions.</p>
+      <p>Press any key to begin.</p>
     `,
     post_trial_gap: 2000,
   }
