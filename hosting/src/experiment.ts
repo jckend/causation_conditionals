@@ -161,7 +161,6 @@ var ignorance_2 = {
   /* define test procedure */
   const test_procedure = {
     timeline: [ignorance_1,ignorance_2],
-    timeline_variables: test_stimuli,
     repetitions: 1,
     randomize_order: true,
   }
