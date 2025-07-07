@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
 import jsPsychHtmlKeyboardResponse from '@jspsych/plugin-html-keyboard-response'
+import htmlSliderResponse from '@jspsych/plugin-html-slider-response'
 import jsPsychImageSliderResponse from '@jspsych/plugin-image-slider-response'
 import jsPsychImageKeyboardResponse from '@jspsych/plugin-image-keyboard-response'
 import jsPsychPreload from '@jspsych/plugin-preload'
@@ -119,7 +120,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
 
   /* define instructions trial */
   const instructions = {
-    type: jsPsychHtmlKeyboardResponse,
+    type: htmlSliderResponse,
     stimulus: `
 <p>In this experiment, you will be presented with an image and asked some questions.</p>
 <p>Press any key to begin.</p>
@@ -129,19 +130,8 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   timeline.push(instructions)
 
 
-  /* define instructions for second trial */
-  const instructions2 = {
-    type: jsPsychHtmlKeyboardResponse,
-    stimulus: `
-<p>In this experiment, you will be presented with an image and asked some questions.</p>
-<p>Press any key to begin.</p>
-    `,
-    post_trial_gap: 2000,
-  }
-  timeline.push(instructions2)
-
   var ignorance_1 = {
-    type: jsPsychHtmlSliderResponse,
+    type: htmlSliderResponse,
     stimulus: 'There are two ways to get $5 from Mr. Johnson: mowing his lawn or cleaning his gutters. However, Laura believes that mowing Mr. Johnson’s lawn is the only way to obtain $5 from him. She tells you: “If you mow Mr. Johnson’s lawn, he’ll pay you $5.”',
     stimulus_width: 700,
     prompt: 'Do you think Laura would accept the following statement: “If you don’t mow Mr. Johnson’s lawn, he won’t pay you $5.”',
