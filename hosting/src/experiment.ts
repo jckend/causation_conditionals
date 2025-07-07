@@ -144,8 +144,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
       data.saveIncrementally = true
     },
   }
-  timeline.push(ignorance_1)
-
+  
 const ignorance_2 = {
     type: jsPsychHtmlSliderResponse,
     stimulus: 'Bob has two risk factors for cardiovascular disease: he smokes and he drinks excessively. However, Bob has lied to his doctor about his drinking. Bob’s doctor tells you: “If Bob doesn’t quit smoking, he’ll get cardiovascular disease.”',
