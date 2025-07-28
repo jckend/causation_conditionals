@@ -14,6 +14,7 @@ import type { DataCollection } from 'jspsych'
 
 import imgThrow1 from 'hosting/src/images/rock__throw_guy1.png'
 import imgThrow2 from 'hosting/src/images/ChatGPT Image Jul 28, 2025, 11_09_14 AM.png'
+import imgThrow3 from 'hosting/src/images/rock__throw_guy3.png'
 
 /* Alternatively
  * type JsPsychInstance = ReturnType<typeof initJsPsych>
@@ -116,7 +117,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   /* preload images */
   const preload = {
     type: jsPsychPreload,
-    images: [imgThrow1, imgThrow2],
+    images: [imgThrow1, imgThrow2, imgThrow3],
   }
   timeline.push(preload)
 
@@ -142,10 +143,12 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
 
   /* define trial stimuli array for timeline variables */
   const test_stimuli: Record<string, string>[] = [
-    { stimulus: imgThrow1, prompt: '<p>If blue man throws his rock, the <span class="font-semibold text-blue-500">vase will shatter</span>.</p>'},
-    { stimulus: imgThrow1, prompt: '<p>If blue man does not throw his rock, the <span class="font-semibold text-orange-500">vase will not shatter</span>.</p>'},
-    { stimulus: imgThrow2, prompt: '<p>If blue man throws his rock, the <span class="font-semibold text-blue-500">vase will shatter</span>.</p>'},
-    { stimulus: imgThrow2, prompt: '<p>If blue man does not throw his rock, the <span class="font-semibold text-orange-500">vase will not shatter</span>.</p>'},
+    { stimulus: imgThrow1, prompt: '<p>If the man throws his rock, the <span class="font-semibold text-blue-500">vase will shatter</span>.</p>'},
+    { stimulus: imgThrow1, prompt: '<p>If the man does not throw his rock, the <span class="font-semibold text-orange-500">vase will not shatter</span>.</p>'},
+    { stimulus: imgThrow2, prompt: '<p>If the man throws his rock, the <span class="font-semibold text-blue-500">vase will shatter</span>.</p>'},
+    { stimulus: imgThrow2, prompt: '<p>If the man does not throw his rock, the <span class="font-semibold text-orange-500">vase will not shatter</span>.</p>'},
+    { stimulus: imgThrow3, prompt: '<p>If the man does not throw his rock, the <span class="font-semibold text-orange-500">vase will not shatter</span>.</p>'},
+    { stimulus: imgThrow3, prompt: '<p>If the man does not throw his rock, the <span class="font-semibold text-orange-500">vase will not shatter</span>.</p>'},
   ]
 
   
