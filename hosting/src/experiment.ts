@@ -143,23 +143,19 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
 
   /* define trial stimuli array for timeline variables */
   const test_stimuli: Record<string, string>[] = [
-    { stimulus: imgThrow1, prompt: '<p>If the man throws his rock, the <span class="font-semibold text-blue-500">vase will shatter</span>.</p>'},
-    { stimulus: imgThrow1, prompt: '<p>If the man does not throw his rock, the <span class="font-semibold text-orange-500">vase will not shatter</span>.</p>'},
-    { stimulus: imgThrow2, prompt: '<p>If the man throws his rock, the <span class="font-semibold text-blue-500">vase will shatter</span>.</p>'},
-    { stimulus: imgThrow2, prompt: '<p>If the man does not throw his rock, the <span class="font-semibold text-orange-500">vase will not shatter</span>.</p>'},
-    { stimulus: imgThrow3, prompt: '<p>If the man does not throw his rock, the <span class="font-semibold text-orange-500">vase will not shatter</span>.</p>'},
-    { stimulus: imgThrow3, prompt: '<p>If the man does not throw his rock, the <span class="font-semibold text-orange-500">vase will not shatter</span>.</p>'},
+    { stimulus: imgThrow1, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-blue-500">if the man throws his rock</span>, the <span class="font-semibold text-blue-500">vase will shatter</span>.</p>'},
+    { stimulus: imgThrow1, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-orange-500">if the man does not throw his rock, the <span class="font-semibold text-orange-500">vase will not shatter</span>.</p>'},
+    { stimulus: imgThrow2, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-blue-500">if the man throws his rock, the <span class="font-semibold text-blue-500">vase will shatter</span>.</p>'},
+    { stimulus: imgThrow2, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-orange-500">if the man does not throw his rock</span>, the <span class="font-semibold text-orange-500">vase will not shatter</span>.</p>'},
+    { stimulus: imgThrow3, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-blue-500">if the man does not throw his rock</span>, the <span class="font-semibold text-blue-500">vase will shatter</span>.</p>'},
+    { stimulus: imgThrow3, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-orange-500">if the man does not throw his rock</span>, the <span class="font-semibold text-orange-500">vase will not shatter</span>.</p>'},
   ]
-
-  
-  /*define likert scale*/
-  var likert_scale = [ "False", "Unsure", "True" ]
 
   /* define test trials */
   const test1 = {
     type: jsPsychImageSliderResponse,
     stimulus: jsPsych.timelineVariable('stimulus') as unknown as string,
-    labels: ['0%', '50%','100%'],
+    labels: [ "False", "Unsure", "True" ],
     prompt: jsPsych.timelineVariable('prompt') as unknown as string,
     slider_width: 500,
     require_movement: true,
