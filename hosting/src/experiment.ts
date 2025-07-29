@@ -153,6 +153,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   const test1 = {
     type: jsPsychImageSliderResponse,
     stimulus: jsPsych.timelineVariable('stimulus') as unknown as string,
+    stimulus_width: 200, 
     labels: [ "False", "Unsure", "True" ],
     prompt: jsPsych.timelineVariable('prompt') as unknown as string,
     slider_width: 500,
