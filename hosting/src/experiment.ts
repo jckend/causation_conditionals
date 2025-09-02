@@ -12,9 +12,10 @@ import { saveTrialDataComplete, saveTrialDataPartial } from './lib/databaseUtils
 import type { SaveableDataRecord } from '../types/project'
 import type { DataCollection } from 'jspsych'
 
-import imgThrow1 from './images/rock__throw_guy1.png'
-import imgThrow2 from './images/rock__throw_guy2.png'
-import imgThrow3 from './images/rock__throw_guy3.png'
+import imgThrow1 from './images/1.png'
+import imgThrow2 from './images/2.jpg'
+import imgThrow3 from './images/4.jpg'
+import imgThrow4 from './images/5.jpg'
 
 /* Alternatively
  * type JsPsychInstance = ReturnType<typeof initJsPsych>
@@ -141,12 +142,14 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
 
   /* define trial stimuli array for timeline variables */
   const test_stimuli: Record<string, string>[] = [
-    { stimulus: imgThrow1, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-blue-500">if the man throws his rock</span>, the <span class="font-semibold text-blue-500">vase will shatter</span>.</p>'},
-    { stimulus: imgThrow1, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-orange-500">if the man does not throw his rock, the <span class="font-semibold text-orange-500">vase will not shatter</span>.</p>'},
-    { stimulus: imgThrow2, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-blue-500">if the man throws his rock, the <span class="font-semibold text-blue-500">vase will shatter</span>.</p>'},
-    { stimulus: imgThrow2, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-orange-500">if the man does not throw his rock</span>, the <span class="font-semibold text-orange-500">vase will not shatter</span>.</p>'},
-    { stimulus: imgThrow3, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-blue-500">if the man does not throw his rock</span>, the <span class="font-semibold text-blue-500">vase will shatter</span>.</p>'},
-    { stimulus: imgThrow3, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-orange-500">if the man does not throw his rock</span>, the <span class="font-semibold text-orange-500">vase will not shatter</span>.</p>'},
+    { stimulus: imgThrow1, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-blue-500">if the man throws his rock</span>, the <span class="font-semibold text-blue-500">vase will crack</span>.</p>'},
+    { stimulus: imgThrow1, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-orange-500">if the man does not throw his rock, the <span class="font-semibold text-orange-500">vase will not crack</span>.</p>'},
+    { stimulus: imgThrow2, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-blue-500">if the man throws his rock, the <span class="font-semibold text-blue-500">vase will crack</span>.</p>'},
+    { stimulus: imgThrow2, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-orange-500">if the man does not throw his rock</span>, the <span class="font-semibold text-orange-500">vase will not crack</span>.</p>'},
+    { stimulus: imgThrow3, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-blue-500">if the man does not throw his rock</span>, the <span class="font-semibold text-blue-500">vase will crack</span>.</p>'},
+    { stimulus: imgThrow3, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-orange-500">if the man does not throw his rock</span>, the <span class="font-semibold text-orange-500">vase will not crack</span>.</p>'},
+    { stimulus: imgThrow4, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-blue-500">if the man does not throw his rock</span>, the <span class="font-semibold text-blue-500">vase will crack</span>.</p>'},
+    { stimulus: imgThrow4, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-orange-500">if the man does not throw his rock</span>, the <span class="font-semibold text-orange-500">vase will not crack</span>.</p>'},
   ]
 
   /* define test trials */
