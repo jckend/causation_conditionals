@@ -142,14 +142,22 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
 
   /* define trial stimuli array for timeline variables */
   const test_stimuli: Record<string, string>[] = [
-    { stimulus: imgThrow1, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-blue-500">if the man throws his rock</span>, the <span class="font-semibold text-blue-500">vase will crack</span>.</p>'},
-    { stimulus: imgThrow1, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-orange-500">if the man does not throw his rock, the <span class="font-semibold text-orange-500">vase will not crack</span>.</p>'},
-    { stimulus: imgThrow2, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-blue-500">if the man throws his rock, the <span class="font-semibold text-blue-500">vase will crack</span>.</p>'},
-    { stimulus: imgThrow2, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-orange-500">if the man does not throw his rock</span>, the <span class="font-semibold text-orange-500">vase will not crack</span>.</p>'},
-    { stimulus: imgThrow3, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-blue-500">if the man does not throw his rock</span>, the <span class="font-semibold text-blue-500">vase will crack</span>.</p>'},
-    { stimulus: imgThrow3, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-orange-500">if the man does not throw his rock</span>, the <span class="font-semibold text-orange-500">vase will not crack</span>.</p>'},
-    { stimulus: imgThrow4, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-blue-500">if the man does not throw his rock</span>, the <span class="font-semibold text-blue-500">vase will crack</span>.</p>'},
-    { stimulus: imgThrow4, prompt: '<p>Given the image, is it true that, <span class="font-semibold text-orange-500">if the man does not throw his rock</span>, the <span class="font-semibold text-orange-500">vase will not crack</span>.</p>'},
+    { stimulus: imgThrow1, prompt: '<p>Given the image, is it true that, if the man throws his rock, the vase will crack.</p>'},
+    { stimulus: imgThrow1, prompt: '<p>Given the image, is it true that the man throwing his rock will cause the vase to crack.</p>'},
+    { stimulus: imgThrow1, prompt: '<p>Given the image, is it true that the man throwing his rock will crack the vase.</p>'},
+    { stimulus: imgThrow1, prompt: '<p>Given the image, is it true that, if the man does not throw his rock, the vase will not crack.</p>'},
+    { stimulus: imgThrow2, prompt: '<p>Given the image, is it true that, if the man throws his rock, the vase will crack.</p>'},
+    { stimulus: imgThrow2, prompt: '<p>Given the image, is it true that, if the man does not throw his rock, the vase will not crack.</p>'},
+    { stimulus: imgThrow2, prompt: '<p>Given the image, is it true that the man throwing his rock will cause the vase to crack.</p>'},
+    { stimulus: imgThrow2, prompt: '<p>Given the image, is it true that the man throwing his rock will crack the vase.</p>'},
+    { stimulus: imgThrow3, prompt: '<p>Given the image, is it true that, if the man throws his rock, the vase will crack.</p>'},
+    { stimulus: imgThrow3, prompt: '<p>Given the image, is it true that, if the man does not throw his rock, the vase will not crack.</p>'},
+    { stimulus: imgThrow3, prompt: '<p>Given the image, is it true that the man throwing his rock will cause the vase to crack.</p>'},
+    { stimulus: imgThrow3, prompt: '<p>Given the image, is it true that the man throwing his rock will crack the vase.</p>'},
+    { stimulus: imgThrow4, prompt: '<p>Given the image, is it true that, if the man throws his rock, the vase will crack.</p>'},
+    { stimulus: imgThrow4, prompt: '<p>Given the image, is it true that, if the man does not throw his rock, the vase will not crack.</p>'},
+    { stimulus: imgThrow4, prompt: '<p>Given the image, is it true that the man throwing his rock will cause the vase to crack.</p>'},
+    { stimulus: imgThrow4, prompt: '<p>Given the image, is it true that the man throwing his rock will crack the vase.</p>'},
   ]
 
   /* define test trials */
