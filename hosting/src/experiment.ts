@@ -196,7 +196,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
     <div class="w-[700px]">
     <img src="${jsPsych.timelineVariable('stimulus')}" />
     </div>
-    <p>${jsPsych.timelineVariable('prompt')}</p>` + 
+    <p>${jsPsych.timelineVariable('prompt')}</p>` 
     },          
     labels: [ "False", "Unsure", "True" ],
     slider_width: 500,
