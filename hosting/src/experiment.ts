@@ -129,6 +129,36 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   }
   timeline.push(welcome)
 
+    /* consent */
+  const consent = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: `
+    <div style="margin-left: 200px; margin-right: 200px; text-align: left;">
+      <b><p style="margin-bottom: 20px;">Please consider this information carefully before deciding whether to participate in this research.</p></b>
+      
+      <p style="margin-bottom: 20px;">The purpose of this research is to examine which factors influence linguistic meaning. You will be asked to make judgements about the meaning of sentences in different scenarios. We are simply interested in your judgement. The study will take less than 1 hour to complete, and you will receive less than $20 on Prolific. Your compensation and time commitment are specified in the study description. There are no anticipated risks associated with participating in this study. The effects of participating should be comparable to those you would ordinarily experience from viewing a computer monitor and using a mouse or keyboard for a similar amount of time. At the end of the study, we will provide an explanation of the questions that motivate this line of research and will describe the potential implications.</p>
+      
+      <p style="margin-bottom: 20px;"margin-bottom: 50px;>Your participation in this study is completely voluntary and you may refuse to participate or you may choose to withdraw at any time without penalty or loss of benefits to you which are otherwise entitled. Your participation in this study will remain confidential. No personally identifiable information will be associated with your data. Also, all analyses of the data will be averaged across all the participants, so your individual responses will never be specifically analyzed.</p>
+      
+      <p style="margin-bottom: 20px;">If you have questions or concerns about your participation or payment, or want to request a summary of research findings, please contact Dr. Jonathan Phillips at <a href="mailto:Jonathan.S.Phillips@dartmouth.edu">Jonathan.S.Phillips@dartmouth.edu</a>.</p>
+      
+      <p style="margin-bottom: 20px;">Please save a copy of this form for your records.</p>
+      
+      <h3><b>Agreement:</b></h3>
+      
+      <p>The nature and purpose of this research have been sufficiently explained and I agree to participate in this study. I understand that I am free to withdraw at any time without incurring any penalty. Please consent by clicking the button below to continue. Otherwise, please exit the study at any time.</p>
+    </div>
+  `,
+    choices: ['Submit'],
+    //this specifies the way in which the data will be configured inside jspsych data variable...
+    data: {
+      internal_type: 'consent',
+      trial_name: 'consent',
+    },
+  }
+  timeline.push(consent)
+
+
   /* define instructions trial */
   const instructions = {
     type: jsPsychHtmlKeyboardResponse,
@@ -143,37 +173,40 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   /* define trial stimuli array for timeline variables */
   const test_stimuli: Record<string, string>[] = [
     { stimulus: imgThrow1, prompt: '<p>Given the image, is it true that, if the man throws his rock, the vase will crack.</p>'},
-    { stimulus: imgThrow1, prompt: '<p>Given the image, is it true that the man throwing his rock will cause the vase to crack.</p>'},
     { stimulus: imgThrow1, prompt: '<p>Given the image, is it true that the man throwing his rock will crack the vase.</p>'},
     { stimulus: imgThrow1, prompt: '<p>Given the image, is it true that, if the man does not throw his rock, the vase will not crack.</p>'},
     { stimulus: imgThrow2, prompt: '<p>Given the image, is it true that, if the man throws his rock, the vase will crack.</p>'},
     { stimulus: imgThrow2, prompt: '<p>Given the image, is it true that, if the man does not throw his rock, the vase will not crack.</p>'},
-    { stimulus: imgThrow2, prompt: '<p>Given the image, is it true that the man throwing his rock will cause the vase to crack.</p>'},
     { stimulus: imgThrow2, prompt: '<p>Given the image, is it true that the man throwing his rock will crack the vase.</p>'},
     { stimulus: imgThrow3, prompt: '<p>Given the image, is it true that, if the man throws his rock, the vase will crack.</p>'},
     { stimulus: imgThrow3, prompt: '<p>Given the image, is it true that, if the man does not throw his rock, the vase will not crack.</p>'},
-    { stimulus: imgThrow3, prompt: '<p>Given the image, is it true that the man throwing his rock will cause the vase to crack.</p>'},
     { stimulus: imgThrow3, prompt: '<p>Given the image, is it true that the man throwing his rock will crack the vase.</p>'},
     { stimulus: imgThrow4, prompt: '<p>Given the image, is it true that, if the man throws his rock, the vase will crack.</p>'},
     { stimulus: imgThrow4, prompt: '<p>Given the image, is it true that, if the man does not throw his rock, the vase will not crack.</p>'},
-    { stimulus: imgThrow4, prompt: '<p>Given the image, is it true that the man throwing his rock will cause the vase to crack.</p>'},
     { stimulus: imgThrow4, prompt: '<p>Given the image, is it true that the man throwing his rock will crack the vase.</p>'},
   ]
 
   /* define test trials */
+
+    /* define test trials */
   const test1 = {
-    type: jsPsychImageSliderResponse,
-    stimulus: jsPsych.timelineVariable('stimulus') as unknown as string,
-    stimulus_width: 200, 
+    type: jsPsychHtmlSliderResponse,
+    stimulus: () => {
+    return  `<p>Consider the following scene:</p>
+    <div class="w-[700px]">
+    <img src="${jsPsych.timelineVariable('stimulus')}" />
+    </div>
+    <p>${jsPsych.timelineVariable('prompt')}</p>` + 
+    },          
     labels: [ "False", "Unsure", "True" ],
-    prompt: jsPsych.timelineVariable('prompt') as unknown as string,
     slider_width: 500,
-    require_movement: true,
+    require_movement: true, 
     on_finish: function (data: TrialData) {
       // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition, unicorn/no-null
       data.saveIncrementally = true
     },
   }
+
 
 
   /* define test procedure */
