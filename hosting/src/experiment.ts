@@ -199,7 +199,6 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
     prompt: jsPsych.timelineVariable('prompt') as unknown as string,
     slider_width: 500,
     require_movement: true,
-    require_movement: true, 
     on_finish: function (data: TrialData) {
       // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition, unicorn/no-null
       data.saveIncrementally = true
