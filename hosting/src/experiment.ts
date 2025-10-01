@@ -172,34 +172,33 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
 
   /* define trial stimuli array for timeline variables */
   const test_stimuli: Record<string, string>[] = [
-    { stimulus: imgThrow1, prompt: '<p>Given the image, is it true that, if the man throws his rock, the vase will crack.</p>'},
-    { stimulus: imgThrow1, prompt: '<p>Given the image, is it true that the man throwing his rock will crack the vase.</p>'},
-    { stimulus: imgThrow1, prompt: '<p>Given the image, is it true that, if the man does not throw his rock, the vase will not crack.</p>'},
-    { stimulus: imgThrow2, prompt: '<p>Given the image, is it true that, if the man throws his rock, the vase will crack.</p>'},
-    { stimulus: imgThrow2, prompt: '<p>Given the image, is it true that, if the man does not throw his rock, the vase will not crack.</p>'},
-    { stimulus: imgThrow2, prompt: '<p>Given the image, is it true that the man throwing his rock will crack the vase.</p>'},
-    { stimulus: imgThrow3, prompt: '<p>Given the image, is it true that, if the man throws his rock, the vase will crack.</p>'},
-    { stimulus: imgThrow3, prompt: '<p>Given the image, is it true that, if the man does not throw his rock, the vase will not crack.</p>'},
-    { stimulus: imgThrow3, prompt: '<p>Given the image, is it true that the man throwing his rock will crack the vase.</p>'},
-    { stimulus: imgThrow4, prompt: '<p>Given the image, is it true that, if the man throws his rock, the vase will crack.</p>'},
-    { stimulus: imgThrow4, prompt: '<p>Given the image, is it true that, if the man does not throw his rock, the vase will not crack.</p>'},
-    { stimulus: imgThrow4, prompt: '<p>Given the image, is it true that the man throwing his rock will crack the vase.</p>'},
+    { stimulus: imgThrow1, prompt: '<p>Given the image, if the man throws his rock, will the vase crack?</p>'},
+    { stimulus: imgThrow1, prompt: '<p>Given the image, will the man throwing his rock crack the vase?</p>'},
+    { stimulus: imgThrow1, prompt: '<p>Given the image, will the man throwing his rock cause the vase to crack?</p>'},
+    { stimulus: imgThrow1, prompt: '<p>Given the image, if the man does not throw his rock, will the vase crack?</p>'},
+    { stimulus: imgThrow2, prompt: '<p>Given the image, if the man throws his rock, will the vase crack?</p>'},
+    { stimulus: imgThrow2, prompt: '<p>Given the image, will the man throwing his rock crack the vase?</p>'},
+    { stimulus: imgThrow2, prompt: '<p>Given the image, will the man throwing his rock cause the vase to crack?</p>'},
+    { stimulus: imgThrow2, prompt: '<p>Given the image, if the man does not throw his rock, will the vase crack?</p>'},
+    { stimulus: imgThrow3, prompt: '<p>Given the image, if the man throws his rock, will the vase crack?</p>'},
+    { stimulus: imgThrow3, prompt: '<p>Given the image, will the man throwing his rock crack the vase?</p>'},
+    { stimulus: imgThrow3, prompt: '<p>Given the image, will the man throwing his rock cause the vase to crack?</p>'},
+    { stimulus: imgThrow3, prompt: '<p>Given the image, if the man does not throw his rock, will the vase crack?</p>'},
+    { stimulus: imgThrow4, prompt: '<p>Given the image, if the man throws his rock, will the vase crack?</p>'},
+    { stimulus: imgThrow4, prompt: '<p>Given the image, will the man throwing his rock crack the vase?</p>'},
+    { stimulus: imgThrow4, prompt: '<p>Given the image, will the man throwing his rock cause the vase to crack?</p>'},
+    { stimulus: imgThrow4, prompt: '<p>Given the image, if the man does not throw his rock, will the vase crack?</p>'},
   ]
 
   /* define test trials */
-
-    /* define test trials */
   const test1 = {
-    type: jsPsychHtmlSliderResponse,
-    stimulus: () => {
-    return  `<p>Consider the following scene:</p>
-    <div class="w-[700px]">
-    <img src="${jsPsych.timelineVariable('stimulus')}" />
-    </div>
-    <p>${jsPsych.timelineVariable('prompt')}</p>` 
-    },          
-    labels: [ "False", "Unsure", "True" ],
+    type: jsPsychImageSliderResponse,
+    stimulus: jsPsych.timelineVariable('stimulus') as unknown as string,
+    stimulus_width: 200, 
+    labels: [ "No", "Unsure", "Yes" ],
+    prompt: jsPsych.timelineVariable('prompt') as unknown as string,
     slider_width: 500,
+    require_movement: true,
     require_movement: true, 
     on_finish: function (data: TrialData) {
       // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition, unicorn/no-null
