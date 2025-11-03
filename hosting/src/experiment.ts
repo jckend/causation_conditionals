@@ -17,7 +17,7 @@ import type { DataCollection } from 'jspsych'
 import imgThrow1 from './images/1.png'
 import imgThrow2 from './images/2.jpg'
 import imgThrow3 from './images/4 (1).jpg'
-import imgThrow4 from './images/5 (1).jpg'
+import imgThrow4 from './images/6.jpg'
 
 /* Alternatively
  * type JsPsychInstance = ReturnType<typeof initJsPsych>
