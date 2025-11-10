@@ -2,9 +2,9 @@ import { firebaseCred, prolificCompletionCode } from './creds'
 
 import type { FirebaseOptions } from 'firebase/app'
 
-export const debuggingMode: boolean = true
+export const debuggingMode: boolean = false
 
-export const simulateMockDatabase: boolean = true
+export const simulateMockDatabase: boolean = false
 
 export const contactInfo: Record<'name' | 'email', string> = {
   name: 'YOUR NAME',
