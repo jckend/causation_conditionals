@@ -14,10 +14,10 @@ import { saveTrialDataComplete, saveTrialDataPartial } from './lib/databaseUtils
 import type { SaveableDataRecord } from '../types/project'
 import type { DataCollection } from 'jspsych'
 
-import imgThrow1 from './images/1.png'
-import imgThrow2 from './images/2.jpg'
-import imgThrow3 from './images/4 (1).jpg'
-import imgThrow4 from './images/6.jpg'
+import imgOff1 from './images/circuit_basic_bulb_off_1.png'
+import imgOff2 from './images/circuit_basic_bulb_off_2.png'
+import imgOff3 from './images/circuit_basic_bulb_off_3.png'
+import imgOff4 from './images/circuit_basic_bulb_off_4.png'
 
 /* Alternatively
  * type JsPsychInstance = ReturnType<typeof initJsPsych>
@@ -174,22 +174,8 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
 
   /* define trial stimuli array for timeline variables */
   const test_stimuli: Record<string, string>[] = [
-    { stimulus: imgThrow1, prompt: '<p>Given the image, if the man throws his rock, will the vase be broken?</p>'},
-    { stimulus: imgThrow1, prompt: '<p>Given the image, will the man throwing his rock break the vase?</p>'},
-    { stimulus: imgThrow1, prompt: '<p>Given the image, will the man throwing his rock cause the vase to break?</p>'},
-    { stimulus: imgThrow1, prompt: '<p>Given the image, if the man does not throw his rock, will the vase be broken?</p>'},
-    { stimulus: imgThrow2, prompt: '<p>Given the image, if the man throws his rock, will the vase be broken?</p>'},
-    { stimulus: imgThrow2, prompt: '<p>Given the image, will the man throwing his rock break the vase?</p>'},
-    { stimulus: imgThrow2, prompt: '<p>Given the image, will the man throwing his rock cause the vase to break?</p>'},
-    { stimulus: imgThrow2, prompt: '<p>Given the image, if the man does not throw his rock, will the vase break?</p>'},
-    { stimulus: imgThrow3, prompt: '<p>Given the image, if the man throws his rock, will the vase break?</p>'},
-    { stimulus: imgThrow3, prompt: '<p>Given the image, will the man throwing his rock break the vase?</p>'},
-    { stimulus: imgThrow3, prompt: '<p>Given the image, will the man throwing his rock cause the vase to break?</p>'},
-    { stimulus: imgThrow3, prompt: '<p>Given the image, if the man does not throw his rock, will the vase be broken?</p>'},
-    { stimulus: imgThrow4, prompt: '<p>Given the image, if the man throws his rock, will the vase be broken?</p>'},
-    { stimulus: imgThrow4, prompt: '<p>Given the image, will the man throwing his rock break the vase?</p>'},
-    { stimulus: imgThrow4, prompt: '<p>Given the image, will the man throwing his rock cause the vase to break?</p>'},
-    { stimulus: imgThrow4, prompt: '<p>Given the image, if the man does not throw his rock, will the vase be broken?</p>'},
+    { stimulus: imgOff1, prompt: '<p>If the switch is flipped, will the </p>'},
+   
   ]
 
   /* define test trials */
