@@ -174,8 +174,20 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
 
   /* define trial stimuli array for timeline variables */
   const test_stimuli: Record<string, string>[] = [
-    { stimulus: imgOff1, prompt: '<p>If the switch is flipped, will the </p>'},
-   
+    { stimulus: imgOff1, prompt: '<p>If the switch is flipped, do you think that the light will turn on?</p>'},
+    { stimulus: imgOff1, prompt: '<p>If the switch is not flipped, do you think that the light will turn on?</p>'},
+    { stimulus: imgOff2, prompt: '<p>If the right switch is flipped, do you think that the light will turn on?</p>'},
+    { stimulus: imgOff2, prompt: '<p>If the right switch is not flipped, do you think that the light will turn on?</p>'},
+    { stimulus: imgOff2, prompt: '<p>If the left switch is flipped, do you think that the light will turn on?</p>'},
+    { stimulus: imgOff2, prompt: '<p>If the left switch is not flipped, do you think that the light will turn on?</p>'},
+    { stimulus: imgOff3, prompt: '<p>If the right switch is flipped, do you think that the light will turn on?</p>'},
+    { stimulus: imgOff3, prompt: '<p>If the right switch is not flipped, do you think that the light will turn on?</p>'},
+    { stimulus: imgOff3, prompt: '<p>If the left switch is flipped, do you think that the light will turn on?</p>'},
+    { stimulus: imgOff3, prompt: '<p>If the left switch is not flipped, do you think that the light will turn on?</p>'},
+    { stimulus: imgOff4, prompt: '<p>If the right switch is flipped, do you think that the light will turn on?</p>'},
+    { stimulus: imgOff4, prompt: '<p>If the right switch is not flipped, do you think that the light will turn on?</p>'},
+    { stimulus: imgOff4, prompt: '<p>If the left switch is flipped, do you think that the light will turn on?</p>'},
+    { stimulus: imgOff4, prompt: '<p>If the left switch is not flipped, do you think that the light will turn on?</p>'},
   ]
 
   /* define test trials */
