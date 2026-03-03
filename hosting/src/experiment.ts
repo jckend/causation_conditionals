@@ -18,6 +18,8 @@ import imgOff1 from './images/circuit_basic_bulb_off_1.png'
 import imgOff2 from './images/circuit_basic_bulb_off_2.png'
 import imgOff3 from './images/circuit_basic_bulb_off_3.png'
 import imgOff4 from './images/circuit_basic_bulb_off_4.png'
+import imgOn1 from './images/circuit_basic_bulb_on_1.png'
+import imgOn2 from './images/circuit_basic_bulb_on_2.png'
 
 /* Alternatively
  * type JsPsychInstance = ReturnType<typeof initJsPsych>
@@ -188,6 +190,12 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
     { stimulus: imgOff4, prompt: '<p>If the right switch is not flipped, do you think that the light will turn on?</p>'},
     { stimulus: imgOff4, prompt: '<p>If the left switch is flipped, do you think that the light will turn on?</p>'},
     { stimulus: imgOff4, prompt: '<p>If the left switch is not flipped, do you think that the light will turn on?</p>'},
+    { stimulus: imgOn1, prompt: '<p>If the switch is flipped, do you think that the light will turn off?</p>'},
+    { stimulus: imgOn1, prompt: '<p>If the switch is not flipped, do you think that the light will turn off?</p>'},
+    { stimulus: imgOn2, prompt: '<p>If the right switch is flipped, do you think that the light will turn off?</p>'},
+    { stimulus: imgOn2, prompt: '<p>If the right switch is not flipped, do you think that the light will turn off?</p>'},
+    { stimulus: imgOn2, prompt: '<p>If the left switch is flipped, do you think that the light will turn off?</p>'},
+    { stimulus: imgOn2, prompt: '<p>If the left switch is not flipped, do you think that the light will turn off?</p>'},
   ]
 
   /* define test trials */
