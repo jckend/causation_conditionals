@@ -123,7 +123,6 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   const preload = {
     type: jsPsychPreload,
     images: [imgOff1, imgOff2, imgOff3, imgOff4, imgOn1, ImgOn2],
-    continue_after_error: true, 
   }
   timeline.push(preload)
 
