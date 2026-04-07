@@ -15,10 +15,10 @@ import type { SaveableDataRecord } from '../types/project'
 import type { DataCollection } from 'jspsych'
 
 import imgOff1 from './images/bulboff1.png'
-import imgOff2 from './images/bolboff2.png'
-import imgOff3 from './images/bolboff3.png'
-import imgOff4 from './images/bolboff4.png'
-import imgOn1 from './images/bolbon1.png'
+import imgOff2 from './images/bulboff2.png'
+import imgOff3 from './images/bulboff3.png'
+import imgOff4 from './images/bulboff4.png'
+import imgOn1 from './images/bulbon1.png'
 import imgOn2 from './images/bulbon2.png'
 
 /* Alternatively
