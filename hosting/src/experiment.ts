@@ -167,6 +167,14 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   }
   timeline.push(instructions)
 
+    /* preload images */
+  const preload = {
+    type: jsPsychPreload,
+    images: [imgOff1, imgOff2, imgOff3, imgOff4, imgOn1, ImgOn2],
+    continue_after_error: true, 
+  }
+  timeline.push(preload)
+
   /* define trial stimuli array for timeline variables */
   const test_stimuli: Record<string, string>[] = [
     { stimulus: imgOff1, prompt: '<p>If the switch is flipped, do you think that the light will turn on?</p>'},
