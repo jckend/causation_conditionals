@@ -14,12 +14,12 @@ import { saveTrialDataComplete, saveTrialDataPartial } from './lib/databaseUtils
 import type { SaveableDataRecord } from '../types/project'
 import type { DataCollection } from 'jspsych'
 
-import imgOff1 from './images/circuit_basic_bulb_off_1.png'
-import imgOff2 from './images/circuit_basic_bulb_off_2.png'
-import imgOff3 from './images/circuit_basic_bulb_off_3.png'
-import imgOff4 from './images/circuit_basic_bulb_off_4.png'
-import imgOn1 from './images/circuit_basic_bulb_on_1.png'
-import imgOn2 from './images/circuit_basic_bulb_on_2.png'
+import imgOff1 from './images/bulboff1.png'
+import imgOff2 from './images/bolboff2.png'
+import imgOff3 from './images/bolboff3.png'
+import imgOff4 from './images/bolboff4.png'
+import imgOn1 from './images/bolbon1.png'
+import imgOn2 from './images/bulbon2.png'
 
 /* Alternatively
  * type JsPsychInstance = ReturnType<typeof initJsPsych>
