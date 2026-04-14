@@ -2,7 +2,7 @@ import { firebaseCred, prolificCompletionCode } from './creds'
 
 import type { FirebaseOptions } from 'firebase/app'
 
-export const debuggingMode: boolean = false
+export const debuggingMode: boolean = true
 
 export const simulateMockDatabase: boolean = false
 
