@@ -220,11 +220,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   const test1 = {
     type: jsPsychImageSliderResponse,
     stimulus: () => {
-    return `
-    <div style="display: flex; justify-content: center; gap: 40px; margin-bottom: 20px;">
-      <div style="text-align: center;">
-      <img src='${jsPsych.timelineVariable('stimulus')}'></img>
-      </div>
+    return jsPsych.timelineVariable('stimulus') + `
       <div style="text-align: center;">
        <p>LEFT     RIGHT</p>
       </div>
