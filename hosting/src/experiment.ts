@@ -185,12 +185,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
 
   /* define trial stimuli array for timeline variables */
   const test_stimuli: Record<string, string>[] = [
-    { stimulus: `
-        <div>
-          <p class="label">Left     Right</p>
-          <img src="${imgOff1}">
-        </div>
-      `, prompt: '<p>If the switch is flipped, will the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
+    { stimulus: imgOff1, prompt: '<p>If the switch is flipped, will the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
     { stimulus: imgOff1, prompt: '<p>If the switch is <b>not</b> flipped, will the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
     { stimulus: imgOff1, prompt: '<p>Will flipping the switch make the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
     { stimulus: imgOff2, prompt: '<p>If the <b>right</b> switch is flipped, will the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
@@ -224,7 +219,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   /* define test trials */
   const test1 = {
     type: jsPsychImageSliderResponse,
-    stimulus: jsPsych.timelineVariable('stimulus') as unknown as string,
+    stimulus: "<p>Left      Right</p>" + jsPsych.timelineVariable('stimulus') as unknown as string,
     stimulus_width: 500, 
     labels: [ "No", "Unsure", "Yes" ],
     prompt: jsPsych.timelineVariable('prompt') as unknown as string,
