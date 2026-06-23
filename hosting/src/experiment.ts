@@ -172,7 +172,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
       <p>In this experiment, you will be presented with an electrical circuit subject to the following rule: the bulb is on when <b>every</b> switch is flipped <span class="font-semibold text-green-500">on</span>. You will then be asked a question about the relevant circuit.</p>
       <center>
       <div style='width: 350px;'>
-      <img src='${imgOff2}'></img>
+      <img src='${imgOff3}'></img>
       <img src='${imgOn2}'></img>
       </div>
       </center>
