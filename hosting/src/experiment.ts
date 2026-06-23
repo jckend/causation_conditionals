@@ -187,7 +187,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   const test_stimuli: Record<string, string>[] = [
     { stimulus: `
         <div class="stimulus-container">
-          <p style="text-align: right;">Right</p>
+          <p class="label">Left     Right</p>
           <img src="${imgOff1}">
         </div>
       `, prompt: '<p>If the switch is flipped, will the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
