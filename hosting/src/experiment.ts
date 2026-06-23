@@ -169,7 +169,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   const instructions = {
     type: jsPsychHtmlKeyboardResponse,
     stimulus: `
-      <p>In this experiment, you will be presented with an electrical circuit subject to the following rule: the bulb lights up when all the switches are flipped <span class="font-semibold text-green-500">on</span>. You will then be asked a question about the relevant circuit.</p>
+      <p>In this experiment, you will be presented with an electrical circuit subject to the following rule: the bulb is on when <b>every</b> switch is flipped <span class="font-semibold text-green-500">on</span>. You will then be asked a question about the relevant circuit.</p>
       <center>
       <div style='width: 700px;'><img src='${imgOff1}'></img>
       </div>
