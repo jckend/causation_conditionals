@@ -185,7 +185,9 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
 
   /* define trial stimuli array for timeline variables */
   const test_stimuli: Record<string, string>[] = [
-    { stimulus: jsPsych.timelineVariable(imgOff1) + "<p align='left'><b>Left</b></p><p align='right'><b>Right</b></p>", prompt: '<p>If the switch is flipped, will the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
+    { stimulus: function() {
+        var stim = jsPsych.timelineVariable(imgOff1) + "<p align='left'><b>Left</b></p><p align='right'><b>Right</b></p>"; 
+        return stim;}, prompt: '<p>If the switch is flipped, will the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
     { stimulus: imgOff1, prompt: '<p>If the switch is <b>not</b> flipped, will the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
     { stimulus: imgOff1, prompt: '<p>Will flipping the switch make the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
     { stimulus: imgOff2, prompt: '<p>If the <b>right</b> switch is flipped, will the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
