@@ -219,9 +219,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   /* define test trials */
   const test1 = {
     type: jsPsychImageSliderResponse,
-    stimulus: () => {
-    return "<p>Left     Right</p>" + jsPsych.evaluateTimelineVariable('stimulus');
-    },
+    stimulus: jsPsych.timelineVariable('stimulus') as unknown as string,
     stimulus_width: 500, 
     labels: [ "No", "Unsure", "Yes" ],
     prompt: jsPsych.timelineVariable('prompt') as unknown as string,
@@ -240,7 +238,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
     timeline: [test1],
     timeline_variables: test_stimuli,
     repetitions: 1,
-    randomize_order: false,
+    randomize_order: true,
   }
   timeline.push(test_procedure)
   
