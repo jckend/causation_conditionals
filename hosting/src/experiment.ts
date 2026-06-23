@@ -186,7 +186,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   /* define trial stimuli array for timeline variables */
   const test_stimuli: Record<string, string>[] = [
     { stimulus: `
-        <div class="stimulus-container">
+        <div>
           <p class="label">Left     Right</p>
           <img src="${imgOff1}">
         </div>
