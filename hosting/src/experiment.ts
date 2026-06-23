@@ -220,7 +220,7 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   const test1 = {
     type: jsPsychImageSliderResponse,
     stimulus: () => {
-    return '<p>Left     Right</p>' + jsPsych.evaluateTimelineVariable('stimulus');
+    return "<p>Left     Right</p>" + jsPsych.evaluateTimelineVariable('stimulus');
     },
     stimulus_width: 500, 
     labels: [ "No", "Unsure", "Yes" ],
