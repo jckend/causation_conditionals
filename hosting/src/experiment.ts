@@ -219,13 +219,10 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   /* define test trials */
   const test1 = {
     type: jsPsychImageSliderResponse,
-    stimulus: `
-    <div style="display: flex; justify-content: space-between; font-size: 24px; font-weight: bold; margin-bottom: 50px;">
-      <span style="width: 50%; text-align: center;">Left</span>
-      <span style="width: 50%; text-align: center;">Right</span>
-    </div>
-    <div><img src='${jsPsych.timelineVariable('stimulus')}'></img></div>
-    `  as unknown as string,
+    stimulus: function() {
+        var stim = '<p style="font-size:30px;font-weight:bold;"> Left Right<p>'+jsPsych.timelineVariable('stimulus');
+        return stim;
+    } as unknown as string,
     stimulus_width: 500, 
     labels: [ "No", "Unsure", "Yes" ],
     prompt: jsPsych.timelineVariable('prompt') as unknown as string,
