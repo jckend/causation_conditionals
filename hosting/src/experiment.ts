@@ -219,9 +219,8 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
   /* define test trials */
   const test1 = {
     type: jsPsychImageSliderResponse,
-    stimulus: function() {
-        var stim = '<p style="font-size:30px;font-weight:bold;"> Left Right<p>'+jsPsych.timelineVariable('stimulus');
-        return stim;
+    stimulus: () => {
+    return '<p>Left     Right</p>' + jsPsych.evaluateTimelineVariable('stimulus');
     } as unknown as string,
     stimulus_width: 500, 
     labels: [ "No", "Unsure", "Yes" ],
