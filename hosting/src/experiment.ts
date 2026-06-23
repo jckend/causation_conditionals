@@ -171,9 +171,9 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
     stimulus: `
       <p>In this experiment, you will be presented with an electrical circuit subject to the following rule: the bulb is on when <b>every</b> switch is flipped <span class="font-semibold text-green-500">on</span>. You will then be asked a question about the relevant circuit.</p>
       <center>
-      <div style='width: 350px;'><img src='${imgOff1}'></img>
-      </div>
-      <div style='width: 350px;'><img src='${imgOn1}'></img>
+      <div style='width: 350px;'>
+      <img src='${imgOff2}'></img>
+      <img src='${imgOn2}'></img>
       </div>
       </center>
       <p>Press any key to begin.</p>
@@ -185,35 +185,35 @@ export async function runExperiment(updateDebugPanel: () => void): Promise<void>
 
   /* define trial stimuli array for timeline variables */
   const test_stimuli: Record<string, string>[] = [
-    { stimulus: imgOff1, prompt: '<p>If the switch is flipped, do you think that the light will turn on?</p>'},
-    { stimulus: imgOff1, prompt: '<p>If the switch is <b>not</b> flipped, do you think that the light will turn on?</p>'},
-    { stimulus: imgOff1, prompt: '<p>Will flipping the switch make the light turn on?</p>'},
-    { stimulus: imgOff2, prompt: '<p>If the <b>right</b> switch is flipped, do you think that the light will turn on?</p>'},
-    { stimulus: imgOff2, prompt: '<p>If the <b>right</b> switch is <b>not</b> flipped, do you think that the light will turn on?</p>'},
-    { stimulus: imgOff2, prompt: '<p>Will flipping the <b>right</b> switch make the light turn on?</p>'},
-    { stimulus: imgOff2, prompt: '<p>If the <b>left</b> switch is flipped, do you think that the light will turn on?</p>'},
-    { stimulus: imgOff2, prompt: '<p>If the <b>left</b> switch is <b>not</b> flipped, do you think that the light will turn on?</p>'},
-    { stimulus: imgOff2, prompt: '<p>Will flipping the <b>left</b> switch make the light turn on?</p>'},
-    { stimulus: imgOff3, prompt: '<p>If the <b>right</b> switch is flipped, do you think that the light will turn on?</p>'},
-    { stimulus: imgOff3, prompt: '<p>If the <b>right</b> switch is <b>not</b> flipped, do you think that the light will turn on?</p>'},
-    { stimulus: imgOff3, prompt: '<p>Will flipping the <b>right</b> switch make the light turn on?</p>'},
-    { stimulus: imgOff3, prompt: '<p>If the <b>left</b> switch is flipped, do you think that the light will turn on?</p>'},
-    { stimulus: imgOff3, prompt: '<p>If the <b>left</b> switch is <b>not</b> flipped, do you think that the light will turn on?</p>'},
-    { stimulus: imgOff3, prompt: '<p>Will flipping the <b>left</b> switch make the light turn on?</p>'},
-    { stimulus: imgOff4, prompt: '<p>If the <b>right</b> switch is flipped, do you think that the light will turn on?</p>'},
-    { stimulus: imgOff4, prompt: '<p>If the <b>right</b> switch is <b>not</b> flipped, do you think that the light will turn on?</p>'},
-    { stimulus: imgOff4, prompt: '<p>Will flipping the <b>right</b> switch make the light turn on?</p>'},
-    { stimulus: imgOff4, prompt: '<p>If the <b>left</b> switch is flipped, do you think that the light will turn on?</p>'},
-    { stimulus: imgOff4, prompt: '<p>If the <b>left</b> switch is <b>not</b> flipped, do you think that the light will turn on?</p>'},
-    { stimulus: imgOn1, prompt: '<p>If the switch is flipped, do you think that the light will turn off?</p>'},
-    { stimulus: imgOn1, prompt: '<p>If the switch is <b>not</b> flipped, do you think that the light will turn off?</p>'},
-    { stimulus: imgOn1, prompt: '<p>Will flipping the switch make the light turn off?</p>'},
-    { stimulus: imgOn2, prompt: '<p>If the <b>right</b> switch is flipped, do you think that the light will turn off?</p>'},
-    { stimulus: imgOn2, prompt: '<p>If the <b>right</b> switch is <b>not</b> flipped, do you think that the light will turn off?</p>'},
-    { stimulus: imgOn2, prompt: '<p>Will flipping the <b>right</b> switch make the light turn off?</p>'},
-    { stimulus: imgOn2, prompt: '<p>If the <b>left</b> switch is flipped, do you think that the light will turn off?</p>'},
-    { stimulus: imgOn2, prompt: '<p>If the <b>left</b> switch is <b>not</b> flipped, do you think that the light will turn off?</p>'},
-    { stimulus: imgOn2, prompt: '<p>Will flipping the <b>left</b> switch make the light turn off?</p>'},
+    { stimulus: imgOff1, prompt: '<p>If the switch is flipped, will the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
+    { stimulus: imgOff1, prompt: '<p>If the switch is <b>not</b> flipped, will the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
+    { stimulus: imgOff1, prompt: '<p>Will flipping the switch make the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
+    { stimulus: imgOff2, prompt: '<p>If the <b>right</b> switch is flipped, will the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
+    { stimulus: imgOff2, prompt: '<p>If the <b>right</b> switch is <b>not</b> flipped, will the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
+    { stimulus: imgOff2, prompt: '<p>Will flipping the <b>right</b> switch make the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
+    { stimulus: imgOff2, prompt: '<p>If the <b>left</b> switch is flipped, will the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
+    { stimulus: imgOff2, prompt: '<p>If the <b>left</b> switch is <b>not</b> flipped, will the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
+    { stimulus: imgOff2, prompt: '<p>Will flipping the <b>left</b> switch make the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
+    { stimulus: imgOff3, prompt: '<p>If the <b>right</b> switch is flipped, will the light turn <span class="font-semibold text-green-500">on</span></p>'},
+    { stimulus: imgOff3, prompt: '<p>If the <b>right</b> switch is <b>not</b> flipped, will the light turn <span class="font-semibold text-green-500">on</span></p>'},
+    { stimulus: imgOff3, prompt: '<p>Will flipping the <b>right</b> switch make the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
+    { stimulus: imgOff3, prompt: '<p>If the <b>left</b> switch is flipped, will the light turn <span class="font-semibold text-green-500">on</span></p>'},
+    { stimulus: imgOff3, prompt: '<p>If the <b>left</b> switch is <b>not</b> flipped, will the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
+    { stimulus: imgOff3, prompt: '<p>Will flipping the <b>left</b> switch make the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
+    { stimulus: imgOff4, prompt: '<p>If the <b>right</b> switch is flipped, will the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
+    { stimulus: imgOff4, prompt: '<p>If the <b>right</b> switch is <b>not</b> flipped, will the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
+    { stimulus: imgOff4, prompt: '<p>Will flipping the <b>right</b> switch make the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
+    { stimulus: imgOff4, prompt: '<p>If the <b>left</b> switch is flipped, will the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
+    { stimulus: imgOff4, prompt: '<p>If the <b>left</b> switch is <b>not</b> flipped, will the light turn <span class="font-semibold text-green-500">on</span>?</p>'},
+    { stimulus: imgOn1, prompt: '<p>If the switch is flipped, will the light turn <span class="font-semibold text-red-500">off</span>?</p>'},
+    { stimulus: imgOn1, prompt: '<p>If the switch is <b>not</b> flipped, will the light turn <span class="font-semibold text-red-500">off</span>?</p>'},
+    { stimulus: imgOn1, prompt: '<p>Will flipping the switch make the light turn <span class="font-semibold text-red-500">off</span>?</p>'},
+    { stimulus: imgOn2, prompt: '<p>If the <b>right</b> switch is flipped, will the light turn <span class="font-semibold text-red-500">off</span>?</p>'},
+    { stimulus: imgOn2, prompt: '<p>If the <b>right</b> switch is <b>not</b> flipped, will the light turn <span class="font-semibold text-red-500">off</span>?</p>'},
+    { stimulus: imgOn2, prompt: '<p>Will flipping the <b>right</b> switch make the light turn <span class="font-semibold text-red-500">off</span>?</p>'},
+    { stimulus: imgOn2, prompt: '<p>If the <b>left</b> switch is flipped, will the light turn <span class="font-semibold text-red-500">off</span>?</p>'},
+    { stimulus: imgOn2, prompt: '<p>If the <b>left</b> switch is <b>not</b> flipped, will the light turn <span class="font-semibold text-red-500">off</span>?</p>'},
+    { stimulus: imgOn2, prompt: '<p>Will flipping the <b>left</b> switch make the light turn <span class="font-semibold text-red-500">off</span>?</p>'},
   ]
 
   /* define test trials */
